@@ -1,1 +1,421 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----------------------------------------------- RESET END ----------------------------------------------- */
+
+.container{
+    --max-width: 1110px;
+    --padding: 1rem;
+  
+    width: min(var(--max-width), 100% - (var(--padding) * 2));
+    margin-inline: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0; /* Add 90px padding to the top */
+    background-color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+
+/* ----------------------------------------------- UNIVERSAL END ------------------------------------------- */
+
+.navbar {
+    background: rgba(255, 255, 255, 0.1); /* Lighter glassmorphism effect background */
+    backdrop-filter: blur(5px); /* Lighter blur intensity */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 10px 0;
+}
+
+.navbar-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the navigation links horizontally */
+}
+
+.navbar-links li {
+    margin: 0 20px;
+    font-family: 'Dosis', sans-serif;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #66665f;
+    font-weight: 400;
+    transition: color 0.3s;
+    position: relative;
+    transition: color 0.3s, transform 0.3s; /* Added transform transition */
+    transform-origin: center bottom;
+}
+
+.navbar-links a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px; /* Height of the gradient underline */
+    background: linear-gradient(90deg, #fff 0%,  #c4c6b1 100%);
+    left: 0;
+    bottom: -5px; /* Adjust as needed to position the underline */
+    opacity: 0;
+    transform: scaleX(0); /* Initial state, no width */
+    transform-origin: center bottom;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #969693; /* Change the color on hover */
+    font-weight: 700;
+    transform: translateY(5px); /* Add a slight upward translation on hover */
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1.2) translateY(0px); /* Expand the underline to full width and add upward translation */
+    opacity: 1;
+}
+
+/* ----------------------------------------------- NAV END ----------------------------------------------------- */
+
+.hero_content{
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: #D1E8E2;
+}
+
+.hero_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.hero_text .caption{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    font-size: clamp(24px, 10vw, 40px); /* Adjust the min, preferred, and max font size as needed */
+    color: #19747E;
+
+}
+
+.fa-vr-cardboard{
+    color: black;
+    text-shadow: -12px 3px 0 grey, -25px 6px 0 whitesmoke;
+
+}
+
+.hero_text .description {
+    color: #7b8543;
+    color: #1B1B1B;
+    text-align: center;
+    max-width: 600px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center-align the text within the max-width container */
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 2.5vw, 19px); /* Adjust the min, preferred, and max font size as needed */
+
+}
+
+.hero_img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero_img .metaverse-hero-img{
+    width: 800px;
+}
+
+/* ----------------------------------------------- HERO END ----------------------------------------------------- */
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A9D6E5;
+
+}
+
+.column {
+    flex: 0 0 calc(33.333% - 10px); /* 33.333% width for each column with a small gap */
+    margin-right: 10px; /* Add a small gap between columns */
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for the hover effect */
+}
+
+.row .column:hover {
+    transform: translateY(-0.3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust gap between image and text */
+}
+
+.image img {
+    max-width: 50px; /* Adjust the max width for your images */
+    height: auto;
+}
+
+.text {
+    flex: 1; /* Allow text to take available space */
+}
+
+.caption {
+    font-weight: 700;
+}
+
+.description {
+    font-size: 0.9rem;
+}
+
+.fa-apple{
+   width: 100%;
+}
+
+/* ----------------------------------------------- ROW/COLUMN END ----------------------------------------------- */
+
+.section {
+    text-align: left;
+    padding: 20px;
+}
+
+.section h2{
+    padding: 20px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.section .first-sentence{
+    color:  #878787;
+}
+
+.section .second-sentence{
+    color:  #85a39b;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    margin-left: 70px;
+    padding-bottom: 10px;
+    
+}
+
+.card {
+    width: 300px; 
+    height: 200px; 
+    background: linear-gradient(to right, #D1E8E2,  #A9D6E5); 
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 15px; 
+    padding: 10px; 
+    margin-right: 20px; 
+    transition: border 0.1s; /* Add a transition effect on the border-color property */
+} 
+
+.card:hover {
+    border:#19747E 3px solid;
+}
+
+
+.card .caption {
+    font-weight: 700;
+}
+
+
+
+.arrows {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.prev,
+.next {
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Style for navigation arrows */
+.prev {
+    margin-right: 10px;
+}
+
+/* ----------------------------------------------- Carousel END ----------------------------------------------- */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #19747E;
+    padding: 35px;
+    color: #fff;
+
+}
+
+.footer .column {
+    flex: 1;
+    padding: 20px;
+    border-left: 3px solid #A9D6E5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.footer .first-column {
+    flex: 2; /* Takes up more space */
+    border-left: none; /* Remove the left border */
+
+}
+
+.column-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer .logo {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer .contact-button {
+    background-color: #23abd4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer .column-content{
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.button-59 {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid black;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    max-width: 300px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-59:focus {
+    color: #171e29;
+  }
+  
+  .button-59:hover {
+    border-color: #474787;
+    color: #474787;
+    fill: #474787;
+  }
+  
+  .button-59:active {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+  
+  @media (min-width: 768px) {
+    .button-59 {
+      min-width: 170px;
+    }
+  }
+
+
+
 

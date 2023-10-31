@@ -6,15 +6,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta NYT Page</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
+    <script src="{% static 'js/index.js' %}"></script>  <!-- Add this line -->
+    <script src="https://kit.fontawesome.com/093b934dd0.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;500;600;700;800&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#github"><i class="fa-brands fa-github"></i>  GitHub</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Website content here -->
+ 
+  
+        <div class="hero_content">
+
+           <div class="hero_text">
+              <div class="caption"><i class="fa-solid fa-vr-cardboard"></i> Metaverse?</div>
+              <div class="description">Virtual Reality (VR) and Augmented Reality (AR) represent 
+                groundbreaking technologies with vast potential. However, their diverse terminology and interpretations can sometimes lead to confusion, 
+                as different companies and individuals define them in various ways.</div>
+           </div>
+
+           <div class="hero_img">
+            <img src="{% static 'img/metaverse_hero_img.png' %}" alt="MetaVerse" class="metaverse-hero-img">
+           </div>
+
+
+        </div>
+    
+
+    <div class="row">
+        <div class="column">
+            <div class="content">
+                <div class="image">
+                    <img src="{% static 'img/Headset.png' %}" alt="Image 1"> 
+                </div>
+                <div class="text">
+                    <div class="caption">VR/AR</div>
+                    <div class="description">Most companies commonly refer to virtual reality headsets as VR headsets or AR headsets. 
+                        However, Apple and Meta have taken a different approach. </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <div class="image">
+                    <!--<img src="{% static 'img/image2.jpg' %}" alt="Image 2"> -->
+                    <i class="fa-brands fa-meta fa-2xl"></i>
+                    
+                </div>
+                <div class="text">
+                    <div class="caption">Meta (Facebook)</div>
+                    <div class="description">
+                        Facebook rebranded itself as Meta, drew inspiration from the science fiction concept of the metaverse their vision of a virtual realm for work and play. 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="content">
+                <div class="image">
+                   <!-- <img src="{% static 'img/image3.jpg' %}" alt="Image 3"> -->
+                   <i class="fa-brands fa-apple fa-2xl"></i>
+                </div>
+                <div class="text">
+                    <div class="caption">Apple</div>
+                    <div class="description">Apple has coined its VR/AR headsets as "spatial computers," 
+                        transforming them into virtual computers that seamlessly integrate into your surroundings. 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="container">
+     <div class="section">
+        <h2>
+            <span class="first-sentence">Here is the data.</span>
+            <span class="second-sentence">Each card will lead you to different data tables.</span>
+        </h2> <!-- The big sentence at the top left -->
+        <div class="carousel">
+
+            <div class="card"> <!-- First card -->
+                <div class="caption">Caption 1</div>
+                <div class="description">Description 1</div>
+            </div>
+            <div class="card"> <!-- Second card -->
+                <div class="caption">Caption 2</div>
+                <div class="description">Description 2</div>
+            </div>
+            <div class="card"> <!-- Third card -->
+                <div class="caption">Caption 3</div>
+                <div class="description">Description 3</div>
+            </div>
+            <div class="card"> <!-- Third card -->
+                <div class="caption">Caption 4</div>
+                <div class="description">Description 4</div>
+            </div>
+            <!-- Add more card divs as needed -->
+
+        </div>
+        <div class="arrows">
+            <div class="prev">&lt;</div> <!-- Left arrow -->
+            <div class="next">&gt;</div> <!-- Right arrow -->
+        </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="column first-column">
+        <div class="logo">&copy; Paddle, Inc.</div>
+        <button class="button-59" role="button">Contact Me</button>
+    </div>
+    <div class="column">
+        <div class="column-content">Home</div>
+        <div class="column-content">About</div>
+        <div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div>
+    </div>
+    <div class="column">    
+        <div class="column-content"><i class="fa-brands fa-x-twitter"></i></div>
+        <div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div>
+        <div class="column-content"><i class="fa-brands fa-meta"></i></div>
+    </div>
+</footer>
+   
 
 </body>
 </html>
