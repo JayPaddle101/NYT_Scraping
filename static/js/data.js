@@ -3,94 +3,106 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log(genericHitsData);
   
-// Filter the data for the year 2020 and sort by month
-var data2020 = genericHitsData
-.filter(function (d) { return d.fields.year === 2021; })
-.map(function (d) { return { month: d.fields.month, hits: d.fields.hits }; })
-.sort(function(a, b) { return a.month - b.month; }); // Sort by month
+  // Parse the month and year into a date
+  var parseDate = d3.timeParse("%Y-%m");
 
-// Setup SVG canvas and margins
-var svg = d3.select("svg"),
-  margin = {top: 20, right: 20, bottom: 30, left: 40},
-  width = +svg.attr("width") - margin.left - margin.right,
-  height = +svg.attr("height") - margin.top - margin.bottom;
+  // Convert the month and year into a JavaScript date
+  var data = genericHitsData.map(function (d) {
+    return {
+      date: parseDate(d.fields.year + '-' + ("0" + d.fields.month).slice(-2)),
+      hits: d.fields.hits
+    };
+  });
 
-// Define the scales for the x and y axes
-var x = d3.scalePoint().rangeRound([0, width]).padding(0.5),
-  y = d3.scaleLinear().rangeRound([height, 0]);
+  // Sort by date
+  data.sort(function(a, b) { return d3.ascending(a.date, b.date); });
 
-// Create the axes
-var g = svg.append("g")
-         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  // Setup SVG canvas and margins
+  var svg = d3.select("svg"),
+      margin = {top: 20, right: 20, bottom: 30, left: 40},
+      width = +svg.attr("width") - margin.left - margin.right,
+      height = +svg.attr("height") - margin.top - margin.bottom;
 
-// Find the maximum number of hits and add 5
-var maxHits = d3.max(data2020, function (d) { return d.hits; }) + 5;
+  // Define the scales for the x and y axes
+  var x = d3.scaleTime().rangeRound([0, width]),
+      y = d3.scaleLinear().rangeRound([height, 0]);
 
-// Set the domains for the axes
-x.domain(data2020.map(function (d) { return d.month; }));
-y.domain([0, maxHits]);
+  // Create the axes
+  var g = svg.append("g")
+     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-// Define the line
-var line = d3.line()
-.x(function(d) { return x(d.month); })
-.y(function(d) { return y(d.hits); });
+  // Find the maximum number of hits and add 5
+  var maxHits = d3.max(data, function (d) { return d.hits; }) + 5;
 
-// Draw the line
-g.append("path")
-.datum(data2020)
-.attr("fill", "none")
-.attr("stroke", "steelblue")
-.attr("stroke-linejoin", "round")
-.attr("stroke-linecap", "round")
-.attr("stroke-width", 1.5)
-.attr("d", line);
+  // Set the domains for the axes
+  x.domain(d3.extent(data, function (d) { return d.date; }));
+  y.domain([0, maxHits]);
 
-// Draw the x-axis
-g.append("g")
-  .attr("class", "axis axis--x")
-  .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x).tickFormat(function(d) { return '2020-' + (d < 10 ? '0' : '') + d; }));
+  // Define the line
+  var line = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.hits); });
 
-// Draw the y-axis
-g.append("g")
-  .attr("class", "axis axis--y")
-  .call(d3.axisLeft(y).ticks(maxHits))
-.append("text")
-  .attr("transform", "rotate(-90)")
-  .attr("y", 6)
-  .attr("dy", "0.71em")
-  .attr("text-anchor", "end")
-  .text("Hits");
+  // Draw the line
+  g.append("path")
+    .datum(data)
+    .attr("fill", "none")
+    .attr("stroke", "steelblue")
+    .attr("stroke-linejoin", "round")
+    .attr("stroke-linecap", "round")
+    .attr("stroke-width", 1.5)
+    .attr("d", line);
 
-// Draw the scatter plot points
-g.selectAll(".dot")
-.data(data2020)
-.enter().append("circle")
-  .attr("class", "dot")
-  .attr("r", 5)
-  .attr("cx", function (d) { return x(d.month); })
-  .attr("cy", function (d) { return y(d.hits); })
-  .style("fill", "#4285F4");
+  // Draw the x-axis
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
 
-// Add the x-axis title
-svg.append("text")             
-.attr("transform",
-    "translate(" + (width/2 + margin.left) + " ," + 
-    (height + margin.top + 40) + ")") // Adjust position as needed
-.style("text-anchor", "middle")
-.attr("class", "axis-title")
-.text("Months and Years");
+  // Define the maximum y-value rounded up to the nearest 5
+  var maxYValue = Math.ceil(maxHits / 5) * 5;
+  // Generate an array of tick values at intervals of 5
+  var yTickValues = d3.range(0, maxYValue + 1, 5);
 
-// Add the y-axis title
-svg.append("text")
-.attr("transform", "rotate(-90)")
-.attr("class", "axis-title")
-.attr("y", 0 + margin.left)
-.attr("x",0 - (height / 2))
-.attr("dy", "-1.6em") // Adjust position as needed
-.style("text-anchor", "middle")
-.text("NYT Hits for Metaverse");
+  // Draw the y-axis with specified tick values
+  g.append("g")
+    .attr("class", "axis axis--y")
+    .call(d3.axisLeft(y).tickValues(yTickValues))
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", "0.71em")
+    .attr("text-anchor", "end")
+    .text("Hits");
 
+  // Draw the scatter plot points
+  g.selectAll(".dot")
+    .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 4)
+      .attr("cx", function (d) { return x(d.date); })
+      .attr("cy", function (d) { return y(d.hits); })
+      .style("fill", "#4285F4");
+
+  // Add the x-axis title
+  svg.append("text")             
+    .attr("transform",
+        "translate(" + (width/2 + margin.left) + " ," + 
+        (height + margin.top + 40) + ")")
+    .style("text-anchor", "middle")
+    .attr("class", "axis-title")
+    .text("Months and Years");
+
+  // Add the y-axis title
+  svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("class", "axis-title")
+    .attr("y", 0 + margin.left)
+    .attr("x",0 - (height / 2))
+    .attr("dy", "-1.6em")
+    .style("text-anchor", "middle")
+    .text("NYT Hits for Metaverse");
 
 
 });

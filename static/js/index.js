@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const carousel = document.querySelector('.carousel');
     const cards = document.querySelectorAll('.card');
     const prevBtn = document.querySelector('.prev');
@@ -36,4 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listeners for arrow buttons
     nextBtn.addEventListener('click', nextCard);
     prevBtn.addEventListener('click', prevCard);
+
+
+    const aboutLink = document.getElementById('about-link');
+    const aboutModal = document.getElementById('about-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    aboutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        aboutModal.style.display = 'block'; // Show the modal
+    });
+
+    closeModal.addEventListener('click', () => {
+        aboutModal.style.display = 'none'; // Hide the modal when close button is clicked
+    });
+
+  
 });

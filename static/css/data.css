@@ -182,12 +182,10 @@ svg {
   max-width: 90%; /* You can set a max-width if needed */
   position: relative; /* Establishes a positioning context for centering */
   overflow: hidden; /* Ensure proper containment */
-  height: 200px; /* Set a fixed height for both halves */
 }
 
 .first-half {
   flex: 1; /* Take up 1/3 of the available space */
-  height: 100%;
   background-color: #E2E2E2; /* Color of the first half */
   padding: 20px; /* Add some padding for content */
   box-sizing: border-box; /* Include padding in the width */
