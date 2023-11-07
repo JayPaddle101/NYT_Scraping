@@ -22,5 +22,6 @@ from Data_app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
-    path('data/', data_view)
+    path('data/', data_view),
+    path('data1/', data1_view),
 ]

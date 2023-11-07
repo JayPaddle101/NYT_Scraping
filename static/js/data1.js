@@ -1,8 +1,9 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log(genericHitsData);
-  
+    console.log(meta_metaverseData)
+    console.log(genericHitsData)
+
   // Parse the month and year into a date
   var parseDate = d3.timeParse("%Y-%m");
 
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Draw the line
   g.append("path")
     .datum(data)
+    .attr("class", "metaverse-line") // A unique class name
     .attr("fill", "none")
     .attr("stroke", "steelblue")
     .attr("stroke-linejoin", "round")
@@ -105,10 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Draw the scatter plot points with mouseover and mouseout events
-  g.selectAll(".dot")
+  g.selectAll(".metaverse-dot")
   .data(data)
   .enter().append("circle")
-    .attr("class", "dot")
+    .attr("class", "metaverse-dot")
     .attr("r", 4)
     .attr("cx", function (d) { return x(d.date); })
     .attr("cy", function (d) { return y(d.hits); })
@@ -136,7 +138,84 @@ document.addEventListener("DOMContentLoaded", function () {
     .text("NYT Hits for Metaverse");
 
 
+  // Map the new dataset
+  var metaMetaverseData = meta_metaverseData.map(function (d) {
+    return {
+      date: parseDate(d.fields.year + '-' + ("0" + d.fields.month).slice(-2)),
+      hits: d.fields.hits
+    };
+  });
+  
+  // Sort the new dataset by date
+  metaMetaverseData.sort(function(a, b) { return d3.ascending(a.date, b.date); });
+  
+  // Draw the line for the new dataset
+  g.append("path")
+    .datum(metaMetaverseData)
+    .attr("fill", "none")
+    .attr("stroke", "green") // Use a different color for the new dataset
+    .attr("stroke-linejoin", "round")
+    .attr("stroke-linecap", "round")
+    .attr("stroke-width", 1.5)
+    .attr("d", line);
+  
+  // Draw the scatter plot points for the new dataset
+  g.selectAll(".metaDot")
+    .data(metaMetaverseData)
+    .enter().append("circle")
+      .attr("class", "metaDot")
+      .attr("r", 4)
+      .attr("cx", function (d) { return x(d.date); })
+      .attr("cy", function (d) { return y(d.hits); })
+      .style("fill", "green") // Use a different color for the new dataset
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout1);
+    
+ function mouseout1() {
+        // Revert the dot color back to the original
+        d3.select(this)
+        .transition()
+        .duration(100) // Short duration for smooth color transition
+        .style("fill", "green"); // Change back to the original color
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
+    }
+
+
+    // Add the legend
+    var legend = svg.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(" + (width - 150) + "," + 20 + ")")
+    .selectAll("g")
+    .data([
+    {color: "steelblue", name: "Metaverse Hits Data"},
+    {color: "green", name: "Facebook & Metaverse Hits Data"}
+    ])
+    .enter().append("g");
+
+    legend.append("rect")
+    .attr("width", 18)
+    .attr("height", 18)
+    .attr("y", function(d, i) { return i * 20; })
+    .style("fill", function(d) { return d.color; });
+
+    legend.append("text")
+    .attr("x", 24)
+    .attr("y", function(d, i) { return i * 20 + 9; })
+    .attr("dy", ".30em")
+    .text(function(d) { return d.name; });
+
+
+    // Add this at the end of your D3 code where you've drawn the graph
+    document.getElementById('toggle-metaverse').addEventListener('click', function() {
+    // Select all elements with the 'metaverse-line' and 'metaverse-dot' class and toggle their visibility
+    var metaverseElements = d3.selectAll(".metaverse-line, .metaverse-dot");
+    if (metaverseElements.style("display") === "none") {
+      metaverseElements.style("display", null);
+    } else {
+      metaverseElements.style("display", "none");
+    }
+   });
+
 });
-   
-
-

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta NYT Page</title>
+    <link rel="stylesheet" href="{% static 'css/data1.css' %}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="{% static 'js/data1.js' %}"></script>  <!-- Add this line -->
+    <script src="https://kit.fontawesome.com/093b934dd0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;500;600;700;800&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var genericHitsData = JSON.parse('{{ generic_hits_json|safe }}');
+        var meta_metaverseData = JSON.parse('{{ meta_meteverse_hits_json|safe }}');
+    </script>
+
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i>  GitHub</a></li>
+            <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
+        </ul>
+  </nav>
+
+  
+  <div id="tooltip" class="tooltip" style="opacity:0;"></div>
+  <div id="graph-container">
+    <svg width="960" height="500"></svg>
+ </div>
+ <div class="button-container">
+    <button id="toggle-metaverse">Toggle Metaverse Hits Data</button>
+ </div>
+
+
+ <div class="bar">
+    <div class="first-half">
+        <h2>Analysis & Context</h2>
+    </div>
+    <div class="second-half">
+        <p> 
+            The graph's addition of Facebook's Metaverse hits data offers a parallel narrative to the existing trend of Metaverse mentions in The New York Times. It underscores the considerable impact that Facebook, now Meta, has had in catalyzing the Metaverse conversation within mainstream media. The alignment in patterns between general Metaverse hits and those specifically associated with Facebook indicates the company's pivotal role in igniting interest in this domain.
+
+            October 2021 marks a significant juncture in this narrative, coinciding with the first Meta Connect event, which emphasized the Metaverse. This period aligns with the zenith of mentions in the publication, suggesting that Facebook's initiatives were likely a driving force behind the Metaverse's heightened visibility. The subsequent parallel decline in both datasets implies that as Meta's announcements waned, so too did the flurry of media coverage.
+
+            This correlation might suggest that while the Metaverse has been a topic of interest over the past three years, Facebook's explicit commitment to this space has played a crucial role in shaping media discourse. The data points to the influence of corporate narratives in steering journalistic focus and public attention.
+
+            As the graph quantifies the Metaverse's presence in journalistic content, it also qualitatively reflects the symbiotic relationship between corporate technological agendas and media coverage. The analysis of these trends can inform our understanding of how tech giants can sway the spotlight onto emerging concepts, subsequently molding public perception and dialogue.
+
+            In interpreting these insights, it's essential to recognize the broader context: the role of influential tech events, the interplay of corporate and journalistic storytelling, and the evolving landscape of public interest. As we delve deeper, it becomes apparent that the narrative of the Metaverse is not only about a burgeoning technology but also about the entities that champion its cause and the media that broadcast its story.
+        </p>
+    </div>
+</div>
+
+
+<footer class="footer">
+  <div class="column first-column">
+      <div class="logo">&copy; Paddle, Inc.</div>
+      <button class="button-59" role="button">Contact Me</button>
+  </div>
+  <div class="column">
+      <div class="column-content">Home</div>
+      <div class="column-content">About</div>
+      <div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div>
+  </div>
+  <div class="column">    
+      <div class="column-content"><i class="fa-brands fa-x-twitter"></i></div>
+      <div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div>
+      <div class="column-content"><i class="fa-brands fa-meta"></i></div>
+  </div>
+</footer>
+ 
+
+
+
+    
+</body>
+</html>
