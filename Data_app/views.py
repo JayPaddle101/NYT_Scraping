@@ -17,6 +17,7 @@ def data_view(request):
     context = {
         'generic_hits_json': generic_hits_json,
         'generic_hits': generic_hits,
+
     }
     
 
@@ -40,3 +41,23 @@ def data1_view(request):
     }
 
     return render(request, 'data1.html', context)
+
+def data2_view(request):
+
+     # Fetch all HitData objects with the title 'Generic'
+    generic_hits = HitData.objects.filter(title='Apple_SC_hits')
+
+    # Serialize the queryset to JSON
+    generic_hits_json = serializers.serialize('json', generic_hits)
+
+    # Create context dictionary to send data to the template
+    context = {
+        'generic_hits_json': generic_hits_json,
+        'generic_hits': generic_hits,
+    }
+
+    
+    return render(request, 'data2.html', context)
+
+
+

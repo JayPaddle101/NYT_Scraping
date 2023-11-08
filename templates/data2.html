@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta NYT Page</title>
+    <link rel="stylesheet" href="{% static 'css/data1.css' %}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="{% static 'js/data2.js' %}"></script>  <!-- Add this line -->
+    <script src="https://kit.fontawesome.com/093b934dd0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;500;600;700;800&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var genericHitsData = JSON.parse('{{ generic_hits_json|safe }}');
+        var yAxisTitle = "{{ y_axis_title|safe }}";
+    </script>
+
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i>  GitHub</a></li>
+            <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
+        </ul>
+  </nav>
+
+  <div id="tooltip" class="tooltip" style="opacity:0;"></div>
+  <div id="graph-container">
+    <svg width="960" height="500"></svg>
+ </div>
+
+  
+
+ <!-- <section id="hit-data">
+        <h2>Generic Hit Data</h2>
+        <ul>
+          {% for hit in generic_hits %}
+            <li>{{ hit.title }} - {{ hit.year }}-{{ hit.month }}: {{ hit.hits }} hits</li>
+          {% empty %}
+            <li>No generic hit data available.</li>
+          {% endfor %}
+        </ul>
+  </section> -->
+
+
+  <div class="bar">
+    <div class="first-half">
+        <h2>Analysis & Context</h2>
+    </div>
+    <div class="second-half">
+        <p>The dataset presents a narrative of media focus on Apple and the concept of Spatial Computing as chronicled by The New York Times throughout 2023. Evidently, the year commenced with a conspicuous absence of articles mentioning either Apple in the context of Spatial Computing or the topic of Spatial Computing alone. This lack of attention suggests that, up until June, Spatial Computing was not a significant point of discussion or association with Apple within the public sphere or in The New York Times' coverage.
+
+            However, the scenario pivoted dramatically in June. The data indicates a spike, with 10 hits, coinciding with Apple's revelation of the Apple Vision Pro. This product, characterized by its pioneering embrace of Spatial Computing, marked a significant moment for Apple — catapulting both the company and the concept of Spatial Computing into the spotlight. The term "Spatial Computing" likely gained traction as a result of this announcement, reflecting a peak of journalistic and public interest catalyzed by Apple's innovation.
+            
+            Post-June, the dataset indicates a return to minimal mentions, which may suggest that while the event was significant, it did not sustain a lasting, heightened level of attention in the months that followed. The single mention in September can be indicative of lingering interest or follow-up discussions on the topic, but the absence of any further significant activity suggests that the buzz around Apple's foray into Spatial Computing has not maintained its initial momentum in the media narrative.
+            
+            This pattern underscores the impact of significant product announcements on media coverage and public discourse. It highlights how a company like Apple can influence the conversation around emerging technologies. The data underscores the potential for innovations like the Apple Vision Pro to momentarily draw attention to niche technological concepts, such as Spatial Computing, even if such attention may not endure in the long term.
+            
+            As the analysis of the data unfolds, it's critical to consider the broader context of technology reporting and the specific narratives around Apple and Spatial Computing. The data reflects not only media attention but also possibly the market's response to new technology paradigms introduced by influential industry players.</p>
+    </div>
+</div>
+
+
+<footer class="footer">
+  <div class="column first-column">
+      <div class="logo">&copy; Paddle, Inc.</div>
+      <button class="button-59" role="button">Contact Me</button>
+  </div>
+  <div class="column">
+      <div class="column-content">Home</div>
+      <div class="column-content">About</div>
+      <div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div>
+  </div>
+  <div class="column">    
+      <div class="column-content"><i class="fa-brands fa-x-twitter"></i></div>
+      <div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div>
+      <div class="column-content"><i class="fa-brands fa-meta"></i></div>
+  </div>
+</footer>
+
+
+</body>
+</html>
+

@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .attr("x",0 - (height / 2))
     .attr("dy", "-1.6em")
     .style("text-anchor", "middle")
-    .text("NYT Hits for Metaverse");
+    .text("NYT Hits for Metaverse and Facebook/Meta");
 
 
   // Map the new dataset

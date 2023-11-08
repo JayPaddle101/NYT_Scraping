@@ -18,6 +18,8 @@
 
   <script type="text/javascript">
     var genericHitsData = JSON.parse('{{ generic_hits_json|safe }}');
+    var yAxisTitle = "{{ y_axis_title|escapejs }}";
+    console.log(yAxisTitle); // This should output the title to the console
   </script>
   
   <nav class="navbar">
