@@ -6,10 +6,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextBtn = document.querySelector('.next');
 
     let currentCardIndex = 0;
-    const cardsPerSlide = 3; // Number of cards to show in each slide
+        // Function to determine the number of cards per slide based on screen width
+    function getCardsPerSlide() {
+        if (window.innerWidth > 768) {
+            return 3; // 3 cards for larger screens
+        } else if (window.innerWidth > 480) {
+            return 2; // 2 cards for medium screens
+        } else {
+            return 1; // 1 card for small screens
+        }
+    }
 
     // Function to show/hide cards based on the currentCardIndex
     function showCurrentCard() {
+        let cardsPerSlide = getCardsPerSlide();
         cards.forEach((card, index) => {
             if (index >= currentCardIndex && index < currentCardIndex + cardsPerSlide) {
                 card.style.display = 'block';
@@ -24,12 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to handle the "Next" button click
     function nextCard() {
+        let cardsPerSlide = getCardsPerSlide();
         currentCardIndex = (currentCardIndex + cardsPerSlide) % cards.length;
         showCurrentCard();
     }
 
     // Function to handle the "Previous" button click
     function prevCard() {
+        let cardsPerSlide = getCardsPerSlide();
         currentCardIndex = (currentCardIndex - cardsPerSlide + cards.length) % cards.length;
         showCurrentCard();
     }

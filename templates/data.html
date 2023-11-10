@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta NYT Page</title>
-    <link rel="stylesheet" href="{% static 'css/data.css' %}">
+    <title>Data NYT Page</title>
+    <link rel="stylesheet" href="{% static 'css/data1.css' %}">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="{% static 'js/data.js' %}"></script>  <!-- Add this line -->
     <script src="https://kit.fontawesome.com/093b934dd0.js" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
   <nav class="navbar">
         <ul class="navbar-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
+            <li><a href="#" id="about-link">About</a></li>
             <li><a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i>  GitHub</a></li>
             <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
         </ul>
@@ -33,7 +33,7 @@
 
   <div id="tooltip" class="tooltip" style="opacity:0;"></div>
   <div id="graph-container">
-    <svg width="960" height="500"></svg>
+    <svg width="960" height="500" viewBox="0 0 960 520"></svg>
  </div>
 
   
@@ -69,17 +69,17 @@
 <footer class="footer">
   <div class="column first-column">
       <div class="logo">&copy; Paddle, Inc.</div>
-      <button class="button-59" role="button">Contact Me</button>
+      <button class="button-59" role="button"><a href="mailto:03jaypaddle@gmail.com">Contact Me</a></button>
   </div>
   <div class="column">
-      <div class="column-content">Home</div>
+      <a href="/"><div class="column-content">Home</div></a>
       <div class="column-content">About</div>
-      <div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div>
+      <a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div></a>
   </div>
   <div class="column">    
-      <div class="column-content"><i class="fa-brands fa-x-twitter"></i></div>
-      <div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div>
-      <div class="column-content"><i class="fa-brands fa-meta"></i></div>
+      <a href="https://twitter.com/" target="_blank"><div class="column-content"><i class="fa-brands fa-x-twitter"></i></div></a>
+      <a href="https://www.apple.com/apple-vision-pro/" target="_blank"><div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div></a>
+      <a href="https://about.meta.com/metaverse/" target="_blank"><div class="column-content"><i class="fa-brands fa-meta"></i></div></a>
   </div>
 </footer>
 

@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add the legend
     var legend = svg.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(" + (width - 150) + "," + 20 + ")")
+    .attr("transform", "translate(" + (width - 200) + "," + 20 + ")")
     .selectAll("g")
     .data([
     {color: "steelblue", name: "Metaverse Hits Data"},
@@ -217,5 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
       metaverseElements.style("display", "none");
     }
    });
+
 
 });

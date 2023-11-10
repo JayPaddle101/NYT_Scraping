@@ -148,6 +148,36 @@ a{
     opacity: 1;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 /* ----------------------------------------------- NAV END ----------------------------------------------------- */
 
 #hit-data{
@@ -170,156 +200,140 @@ svg {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.axis-title {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-family: 'Dosis', sans-serif;
-  font-size: 15px;
-  fill: #333; /* color of the text */
-}
-
-.tooltip {
-  position: absolute;
-  text-align: center;
-  width: auto;
-  height: auto;
-  padding: 4px;
-  font: 12px sans-serif;
-  background: white;
-  border: solid 1px #aaa;
-  border-radius: 5px;
-  pointer-events: none;
-  z-index: 10;
-}
 
 /* ----------------------------------------------- GRAPH END ----------------------------------------------------- */
 
-
 .bar {
-  padding-top: 50px;
-  display: flex; /* Display the bar as a flex container */
-  margin: 0 auto; /* This centers the div */
-  max-width: 90%; /* You can set a max-width if needed */
-  position: relative; /* Establishes a positioning context for centering */
-  overflow: hidden; /* Ensure proper containment */
-}
-
-.first-half {
-  flex: 1; /* Take up 1/3 of the available space */
-  background-color: #E2E2E2; /* Color of the first half */
-  padding: 20px; /* Add some padding for content */
-  box-sizing: border-box; /* Include padding in the width */
-  font-family: 'Dosis', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
+    padding-top: 50px;
+    display: flex; /* Display the bar as a flex container */
+    margin: 0 auto; /* This centers the div */
+    max-width: 90%; /* You can set a max-width if needed */
+    position: relative; /* Establishes a positioning context for centering */
+    overflow: hidden; /* Ensure proper containment */
+    border-radius: 20px;
+    gap: 5px
+  }
   
-}
-
-.second-half {
-  flex: 2; /* Take up 2/3 of the available space */
-  height: 100%;
-  background-color: #D1E8E2; /* Color of the second half */
-  padding: 15px; /* Add some padding for content */
-  box-sizing: border-box; /* Include padding in the width */
-}
+  .first-half {
+    flex: 1; /* Take up 1/3 of the available space */
+    background-color: #CAF0F8; /* Color of the first half */
+    padding: 20px; /* Add some padding for content */
+    box-sizing: border-box; /* Include padding in the width */
+    font-weight: 300;
+    font-size: 20px;
+    border-radius: 20px;
+  }
+  
+  .second-half {
+    flex: 2; /* Take up 2/3 of the available space */
+    height: 100%;
+    background-color: #90E0EF; /* Color of the second half */
+    padding: 15px; /* Add some padding for content */
+    box-sizing: border-box; /* Include padding in the width */
+    padding-left: 40px;
+    font-weight: 400;
+    border-radius: 15px;
+  }
 
 /* ----------------------------------------------- ANALYSIS END ----------------------------------------------------- */
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: #19747E;
-  padding: 35px;
-  color: #fff;
-  margin-top: 50px;
 
-}
-
-.footer .column {
-  flex: 1;
-  padding: 20px;
-  border-left: 3px solid #A9D6E5;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.footer .first-column {
-  flex: 2; /* Takes up more space */
-  border-left: none; /* Remove the left border */
-
-}
-
-.column-title {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer .logo {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.footer .contact-button {
-  background-color: #23abd4;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.footer .column-content{
-  font-weight: 500;
-  font-family: 'Dosis', sans-serif;
-  padding-bottom: 10px;
-  cursor: pointer;
-}
-
-.button-59 {
-  align-items: center;
-  background-color: #fff;
-  border: 2px solid black;
-  box-sizing: border-box;
-  color: black;
-  cursor: pointer;
-  display: inline-flex;
-  fill: #000;
-  font-family: Inter,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  height: 48px;
-  justify-content: center;
-  letter-spacing: -.8px;
-  line-height: 24px;
-  max-width: 300px;
-  outline: 0;
-  padding: 0 17px;
-  text-align: center;
-  text-decoration: none;
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-59:focus {
-  color: #171e29;
-}
-
-.button-59:hover {
-  border-color: #474787;
-  color: #474787;
-  fill: #474787;
-}
-
-.button-59:active {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
-}
-
-@media (min-width: 768px) {
-  .button-59 {
-    min-width: 170px;
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #19747E;
+    padding: 35px;
+    color: #fff;
+    margin-top: 50px;
+  
   }
-}
+  
+  .footer .column {
+    flex: 1;
+    padding: 20px;
+    border-left: 3px solid #A9D6E5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .footer .first-column {
+    flex: 2; /* Takes up more space */
+    border-left: none; /* Remove the left border */
+  
+  }
+  
+  .column-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer .logo {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .footer .contact-button {
+    background-color: #23abd4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .footer .column-content{
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    padding-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .button-59 {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid black;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    max-width: 300px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-59:focus {
+    color: #171e29;
+  }
+  
+  .button-59:hover {
+    border-color: #474787;
+    color: #474787;
+    fill: #474787;
+  }
+  
+  .button-59:active {
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
+  }
+  
+  @media (min-width: 768px) {
+    .button-59 {
+      min-width: 170px;
+    }
+  }

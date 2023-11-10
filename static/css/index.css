@@ -239,37 +239,38 @@ a{
 
 .row {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Allow columns to wrap in smaller screens */
     background-color: #A9D6E5;
-
+    justify-content: center; /* Center columns when they don't fill the entire width */
 }
 
 .column {
-    flex: 0 0 calc(33.333% - 10px); /* 33.333% width for each column with a small gap */
-    margin-right: 10px; /* Add a small gap between columns */
+    flex: 1 1 200px; /* Flexible grow and shrink, base width of 200px */
+    margin: 10px; /* Uniform margin */
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s; /* Add transition for the hover effect */
 }
 
+/* Hover effect */
 .row .column:hover {
     transform: translateY(-0.3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-
 .content {
     display: flex;
-    align-items: center;
-    gap: 20px; /* Adjust gap between image and text */
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items */
+    gap: 20px; /* Adjust gap */
 }
 
-.image img {
-    max-width: 50px; /* Adjust the max width for your images */
+.image img, .fa-apple, .fa-meta {
+    max-width: 100px; /* Adjust the max width */
     height: auto;
 }
 
 .text {
-    flex: 1; /* Allow text to take available space */
+    text-align: center; /* Center text for smaller devices */
 }
 
 .caption {
@@ -280,8 +281,30 @@ a{
     font-size: 0.9rem;
 }
 
-.fa-apple{
-   width: 100%;
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row; /* Row direction for larger screens */
+        align-items: start; /* Align items to start */
+    }
+
+    .column {
+        flex: 0 0 calc(33.333% - 20px); /* Adjust column width */
+    }
+
+    .image img, .fa-apple, .fa-meta {
+        max-width: 50px; /* Adjust image size for larger screens */
+    }
+
+    .text {
+        text-align: left; /* Align text to left for larger screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .description {
+        font-size: 0.8rem; /* Smaller font size for very small devices */
+    }
 }
 
 /* ----------------------------------------------- ROW/COLUMN END ----------------------------------------------- */
@@ -324,6 +347,22 @@ a{
     transition: border 0.1s; /* Add a transition effect on the border-color property */
     cursor: pointer;
 } 
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .card {
+        width: 250px; /* Smaller width for smaller screens */
+        height: 150px; /* Adjust height accordingly */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 200px; /* Even smaller width for very small screens */
+        height: 120px; /* Adjust height accordingly */
+        font-size: 11px;
+    }
+}
 
 .card:hover {
     border:#19747E 3px solid;

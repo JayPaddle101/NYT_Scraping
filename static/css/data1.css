@@ -64,6 +64,7 @@ svg {
   }
 }
 
+
 /* ----------------------------------------------- RESET END ----------------------------------------------- */
 
 .container{
@@ -80,6 +81,11 @@ body {
     background-color: white;
     font-family: 'Roboto Condensed', sans-serif;
 
+}
+
+a{
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use the default text color */
 }
 
 /* ----------------------------------------------- UNIVERSAL END ------------------------------------------- */
@@ -143,6 +149,36 @@ body {
     opacity: 1;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 /* ----------------------------------------------- NAV END ----------------------------------------------------- */
 
 #hit-data{
@@ -188,6 +224,10 @@ svg {
 
 #graph-container {
   /* Ensure the graph container is block level to allow for centering below */
+  padding-top: 80px;
+  margin: 0 auto; /* This centers the div */
+  max-width: 100%; /* You can set a max-width if needed */
+  position: relative; /* Establishes a positioning context for centering */
   width: 100%;
   text-align: center; /* Center content inside the graph container */
 }
@@ -244,6 +284,34 @@ svg {
   font-weight: 400;
   border-radius: 15px;
 
+}
+
+@media (max-width: 768px) {
+  .bar {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .first-half, .second-half {
+    flex: none; /* Remove flex ratio */
+    width: 100%; /* Full width */
+    padding: 15px; /* Reduced padding */
+    font-size: 18px; /* Slightly smaller text */
+  }
+
+  .second-half {
+    padding-left: 20px; /* Reduced padding-left */
+  }
+}
+
+@media (max-width: 480px) {
+  .first-half, .second-half {
+    padding: 10px; /* Even smaller padding */
+    font-size: 16px; /* Even smaller text */
+  }
+
+  .second-half {
+    padding-left: 15px; /* Further reduced padding-left */
+  }
 }
 
 /* ----------------------------------------------- ANALYSIS END ----------------------------------------------------- */

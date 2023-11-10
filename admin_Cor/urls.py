@@ -25,4 +25,5 @@ urlpatterns = [
     path('data/', data_view),
     path('data1/', data1_view),
     path('data2/', data2_view),
+    path('data3/', data3_view),
 ]

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta NYT Page</title>
+    <title>Data NYT Page</title>
     <link rel="stylesheet" href="{% static 'css/data1.css' %}">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="{% static 'js/data1.js' %}"></script>  <!-- Add this line -->
@@ -29,11 +29,23 @@
             <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
         </ul>
   </nav>
+  <!-- The modal -->
+  <div class="modal" id="about-modal">
+    <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Why?</h2>
+        <p>Now that the arms race of AR/VR technology has officaly taken off, I wanted to find out how Meta and Apple 
+            are approaching their visions for the technology. To do this I used NYT's API to scrape data of their website/articles
+            to better understand the impact of how each company is using terminology and marketing to entice the mass markets to their 
+            product and ecosystem. I hope you enjoy!
+        </p>
+    </div>
+</div>
 
   
   <div id="tooltip" class="tooltip" style="opacity:0;"></div>
   <div id="graph-container">
-    <svg width="960" height="500"></svg>
+    <svg width="960" height="500" viewBox="0 0 960 520"></svg>
  </div>
  <div class="button-container">
     <button id="toggle-metaverse">Toggle Metaverse Hits Data</button>
@@ -61,20 +73,20 @@
 
 
 <footer class="footer">
-  <div class="column first-column">
-      <div class="logo">&copy; Paddle, Inc.</div>
-      <button class="button-59" role="button">Contact Me</button>
-  </div>
-  <div class="column">
-      <div class="column-content">Home</div>
-      <div class="column-content">About</div>
-      <div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div>
-  </div>
-  <div class="column">    
-      <div class="column-content"><i class="fa-brands fa-x-twitter"></i></div>
-      <div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div>
-      <div class="column-content"><i class="fa-brands fa-meta"></i></div>
-  </div>
+    <div class="column first-column">
+        <div class="logo">&copy; Paddle, Inc.</div>
+        <button class="button-59" role="button"><a href="mailto:03jaypaddle@gmail.com">Contact Me</a></button>
+    </div>
+    <div class="column">
+        <a href="/"><div class="column-content">Home</div></a>
+        <div class="column-content">About</div>
+        <a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div></a>
+    </div>
+    <div class="column">    
+        <a href="https://twitter.com/" target="_blank"><div class="column-content"><i class="fa-brands fa-x-twitter"></i></div></a>
+        <a href="https://www.apple.com/apple-vision-pro/" target="_blank"><div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div></a>
+        <a href="https://about.meta.com/metaverse/" target="_blank"><div class="column-content"><i class="fa-brands fa-meta"></i></div></a>
+    </div>
 </footer>
  
 

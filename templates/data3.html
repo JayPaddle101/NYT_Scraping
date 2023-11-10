@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data NYT Page</title>
+    <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://kit.fontawesome.com/093b934dd0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;500;600;700;800&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var appleScHitsData = JSON.parse('{{ apple_sc_hits_json|safe }}');
+        var metaMetaverseHitsData = JSON.parse('{{ meta_metaverse_hits_json|safe }}');
+    </script>
+
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#" id="about-link">About</a></li>
+            <li><a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i>  GitHub</a></li>
+            <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="graph-container">
+        <svg width="960" height="500"></svg>
+     </div>
+
+
+     <div class="bar">
+        <div class="first-half">
+            <h2>Analysis & Context</h2>
+        </div>
+        <div class="second-half">
+            <p> 
+                The provided data points, focusing on Apple's Spatial Computer reveal in June 2023 and Meta's Metaverse announcement in October 2021, offer a glimpse into the media impact and public interest surrounding these significant VR/AR product launches. In June 2023, Apple's introduction of its "Spatial Computer" marked a significant step in blending physical and virtual environments. The term itself reflects Apple's innovative approach to immersive technology. The New York Times recorded a modest number of hits (10), indicating a focused but substantial interest. This response is likely influenced by Apple's reputation for pioneering new technologies, leading to a measured yet noticeable media presence.
+
+Contrastingly, Meta's announcement of its foray into the "Metaverse" in October 2021 garnered a substantially higher media attention, as evidenced by 25 hits in The New York Times. This event was not just a product launch but a significant rebranding and strategic shift for the company formerly known as Facebook. The concept of a fully immersive digital universe was novel at the time, and the announcement captured substantial public curiosity and media interest.
+
+These events represent critical milestones in the tech industry's journey towards immersive technologies. Apple's entry with a "Spatial Computer" and Meta's pivot towards the "Metaverse" demonstrate the sector's drive to evolve beyond traditional computing. The disparity in media response to these announcements offers insights into how major tech companies can shape public perception and interest. Meta's more significant number of hits suggests broader interest, likely due to the novelty of its vision and the dramatic rebranding of a well-known entity. On the other hand, Apple's Spatial Computer attracted a more targeted interest, possibly a result of Apple's specific marketing strategies and product development approaches.
+
+In conclusion, these data points not only highlight the key moments in VR/AR technology development but also underline the influence of major tech companies in shaping future trends and public discourse in this evolving domain. The terms "Metaverse" and "Spatial Computer" are likely to become more ingrained in popular lexicon as these technologies further integrate into everyday life.    
+            </p>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="column first-column">
+            <div class="logo">&copy; Paddle, Inc.</div>
+            <button class="button-59" role="button"><a href="mailto:03jaypaddle@gmail.com">Contact Me</a></button>
+        </div>
+        <div class="column">
+            <a href="/"><div class="column-content">Home</div></a>
+            <div class="column-content">About</div>
+            <a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div></a>
+        </div>
+        <div class="column">    
+            <a href="https://twitter.com/" target="_blank"><div class="column-content"><i class="fa-brands fa-x-twitter"></i></div></a>
+            <a href="https://www.apple.com/apple-vision-pro/" target="_blank"><div class="column-content"><i class="fa-brands fa-apple fa-lg"></i></div></a>
+            <a href="https://about.meta.com/metaverse/" target="_blank"><div class="column-content"><i class="fa-brands fa-meta"></i></div></a>
+        </div>
+    </footer>
+
+
+
+
+
+<script src="{% static 'js/data3.js' %}"></script>  <!-- Add this line -->
+</body>
+</html>

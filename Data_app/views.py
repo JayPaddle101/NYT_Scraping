@@ -59,5 +59,24 @@ def data2_view(request):
     
     return render(request, 'data2.html', context)
 
+def data3_view(request):
+    apple_sc_hits = {"date": "2023-06", "hits": 10}
+    meta_metaverse_hits = {"date": "2021-10", "hits": 25}
+
+    # Convert data to JSON
+    apple_sc_hits_json = json.dumps(apple_sc_hits)
+    meta_metaverse_hits_json = json.dumps(meta_metaverse_hits)
+
+    context = {
+        'apple_sc_hits_json': apple_sc_hits_json,
+        'meta_metaverse_hits_json': meta_metaverse_hits_json
+    }
+
+    return render(request, 'data3.html', context)
+
+
+   
+
+
 
 
