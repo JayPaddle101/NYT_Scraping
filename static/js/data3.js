@@ -5,6 +5,19 @@ document.addEventListener("DOMContentLoaded", function (){
     console.log(appleScHitsData);
     console.log(metaMetaverseHitsData);
 
+  const aboutLink = document.getElementById('about-link');
+  const aboutModal = document.getElementById('about-modal');
+  const closeModal = document.getElementById('close-modal');
+
+  aboutLink.addEventListener('click', (e) => {
+      //e.preventDefault();
+      aboutModal.style.display = 'block'; // Show the modal
+  });
+
+  closeModal.addEventListener('click', () => {
+      aboutModal.style.display = 'none'; // Hide the modal when close button is clicked
+  });
+
     // Assuming you have already parsed the JSON data and it looks like this
     var appleScHitsData = { "date": "2023-06", "hits": 10 };
     var metaMetaverseHitsData = { "date": "2021-10", "hits": 25 };

@@ -28,13 +28,26 @@
             <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
         </ul>
     </nav>
+    <!-- The modal -->
+    <div class="modal" id="about-modal">
+    <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Why?</h2>
+        <p>Now that the arms race of AR/VR technology has officaly taken off, I wanted to find out how Meta and Apple 
+            are approaching their visions for the technology. To do this I used NYT's API to scrape data of their website/articles
+            to better understand the impact of how each company is using terminology and marketing to entice the mass markets to their 
+            product and ecosystem. I hope you enjoy!
+        </p>
+    </div>
+    </div>
 
+    <div id="tooltip" class="tooltip" style="opacity:0;"></div>
     <div id="graph-container">
-        <svg width="960" height="500"></svg>
-     </div>
+      <svg width="960" height="500" viewBox="0 0 960 520"></svg>
+    </div>
 
-
-     <div class="bar">
+    
+    <div class="bar">
         <div class="first-half">
             <h2>Analysis & Context</h2>
         </div>
@@ -42,11 +55,11 @@
             <p> 
                 The provided data points, focusing on Apple's Spatial Computer reveal in June 2023 and Meta's Metaverse announcement in October 2021, offer a glimpse into the media impact and public interest surrounding these significant VR/AR product launches. In June 2023, Apple's introduction of its "Spatial Computer" marked a significant step in blending physical and virtual environments. The term itself reflects Apple's innovative approach to immersive technology. The New York Times recorded a modest number of hits (10), indicating a focused but substantial interest. This response is likely influenced by Apple's reputation for pioneering new technologies, leading to a measured yet noticeable media presence.
 
-Contrastingly, Meta's announcement of its foray into the "Metaverse" in October 2021 garnered a substantially higher media attention, as evidenced by 25 hits in The New York Times. This event was not just a product launch but a significant rebranding and strategic shift for the company formerly known as Facebook. The concept of a fully immersive digital universe was novel at the time, and the announcement captured substantial public curiosity and media interest.
+                Contrastingly, Meta's announcement of its foray into the "Metaverse" in October 2021 garnered a substantially higher media attention, as evidenced by 25 hits in The New York Times. This event was not just a product launch but a significant rebranding and strategic shift for the company formerly known as Facebook. The concept of a fully immersive digital universe was novel at the time, and the announcement captured substantial public curiosity and media interest.
 
-These events represent critical milestones in the tech industry's journey towards immersive technologies. Apple's entry with a "Spatial Computer" and Meta's pivot towards the "Metaverse" demonstrate the sector's drive to evolve beyond traditional computing. The disparity in media response to these announcements offers insights into how major tech companies can shape public perception and interest. Meta's more significant number of hits suggests broader interest, likely due to the novelty of its vision and the dramatic rebranding of a well-known entity. On the other hand, Apple's Spatial Computer attracted a more targeted interest, possibly a result of Apple's specific marketing strategies and product development approaches.
+                These events represent critical milestones in the tech industry's journey towards immersive technologies. Apple's entry with a "Spatial Computer" and Meta's pivot towards the "Metaverse" demonstrate the sector's drive to evolve beyond traditional computing. The disparity in media response to these announcements offers insights into how major tech companies can shape public perception and interest. Meta's more significant number of hits suggests broader interest, likely due to the novelty of its vision and the dramatic rebranding of a well-known entity. On the other hand, Apple's Spatial Computer attracted a more targeted interest, possibly a result of Apple's specific marketing strategies and product development approaches.
 
-In conclusion, these data points not only highlight the key moments in VR/AR technology development but also underline the influence of major tech companies in shaping future trends and public discourse in this evolving domain. The terms "Metaverse" and "Spatial Computer" are likely to become more ingrained in popular lexicon as these technologies further integrate into everyday life.    
+                In conclusion, these data points not only highlight the key moments in VR/AR technology development but also underline the influence of major tech companies in shaping future trends and public discourse in this evolving domain. The terms "Metaverse" and "Spatial Computer" are likely to become more ingrained in popular lexicon as these technologies further integrate into everyday life.    
             </p>
         </div>
     </div>
@@ -59,7 +72,7 @@ In conclusion, these data points not only highlight the key moments in VR/AR tec
         </div>
         <div class="column">
             <a href="/"><div class="column-content">Home</div></a>
-            <div class="column-content">About</div>
+            <div class="column-content">03jaypaddle@gmail.com</div>
             <a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div></a>
         </div>
         <div class="column">    

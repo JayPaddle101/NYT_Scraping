@@ -1,7 +1,20 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
 
-    console.log(genericHitsData);
+  console.log(genericHitsData);
+  
+  const aboutLink = document.getElementById('about-link');
+  const aboutModal = document.getElementById('about-modal');
+  const closeModal = document.getElementById('close-modal');
+
+  aboutLink.addEventListener('click', (e) => {
+      //e.preventDefault();
+      aboutModal.style.display = 'block'; // Show the modal
+  });
+
+  closeModal.addEventListener('click', () => {
+      aboutModal.style.display = 'none'; // Hide the modal when close button is clicked
+  });
     
     // Parse the month and year into a date
     var parseDate = d3.timeParse("%Y-%m");

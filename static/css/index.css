@@ -277,7 +277,7 @@ a{
     font-weight: 700;
 }
 
-.description {
+.card .description {
     font-size: 0.9rem;
 }
 
@@ -302,8 +302,8 @@ a{
 }
 
 @media (max-width: 480px) {
-    .description {
-        font-size: 0.8rem; /* Smaller font size for very small devices */
+    .card .description {
+        font-size: 11px; /* Smaller font size for very small devices */
     }
 }
 

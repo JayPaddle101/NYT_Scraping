@@ -22,13 +22,25 @@
     </script>
 
     <nav class="navbar">
-        <ul class="navbar-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i>  GitHub</a></li>
-            <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
-        </ul>
-  </nav>
+      <ul class="navbar-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="#" id="about-link">About</a></li>
+          <li><a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><i class="fa-brands fa-github"></i>  GitHub</a></li>
+          <li><a href="mailto:03jaypaddle@gmail.com">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- The modal -->
+    <div class="modal" id="about-modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Why?</h2>
+      <p>Now that the arms race of AR/VR technology has officaly taken off, I wanted to find out how Meta and Apple 
+          are approaching their visions for the technology. To do this I used NYT's API to scrape data of their website/articles
+          to better understand the impact of how each company is using terminology and marketing to entice the mass markets to their 
+          product and ecosystem. I hope you enjoy!
+      </p>
+    </div>
+    </div>
 
   <div id="tooltip" class="tooltip" style="opacity:0;"></div>
   <div id="graph-container">
@@ -74,7 +86,7 @@
   </div>
   <div class="column">
       <a href="/"><div class="column-content">Home</div></a>
-      <div class="column-content">About</div>
+      <div class="column-content">03jaypaddle@gmail.com</div>
       <a href="https://github.com/JayPaddle101?tab=repositories" target="_blank"><div class="column-content"><i class="fa-brands fa-github"></i>  GitHub</div></a>
   </div>
   <div class="column">    
