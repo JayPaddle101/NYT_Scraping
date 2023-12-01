@@ -306,7 +306,7 @@ svg {
 @media (max-width: 480px) {
   .first-half, .second-half {
     padding: 10px; /* Even smaller padding */
-    font-size: 16px; /* Even smaller text */
+    font-size: 15px; /* Even smaller text */
   }
 
   .second-half {
@@ -413,5 +413,23 @@ svg {
 @media (min-width: 768px) {
   .button-59 {
     min-width: 170px;
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .footer {
+      flex-direction: column;
+  }
+
+  .footer .column {
+      flex: none; /* Reset the flex value */
+      width: 100%; /* Full width */
+      border-left: none; /* Optionally remove the border */
+      padding: 10px; /* Adjust padding as needed */
+  }
+
+  .footer .first-column {
+      order: -1; /* Move the first column to the top */
   }
 }

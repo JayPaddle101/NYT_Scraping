@@ -235,6 +235,34 @@ svg {
     border-radius: 15px;
   }
 
+  @media (max-width: 768px) {
+    .bar {
+      flex-direction: column; /* Stack items vertically */
+    }
+  
+    .first-half, .second-half {
+      flex: none; /* Remove flex ratio */
+      width: 100%; /* Full width */
+      padding: 15px; /* Reduced padding */
+      font-size: 18px; /* Slightly smaller text */
+    }
+  
+    .second-half {
+      padding-left: 20px; /* Reduced padding-left */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .first-half, .second-half {
+      padding: 10px; /* Even smaller padding */
+      font-size: 15px; /* Even smaller text */
+    }
+  
+    .second-half {
+      padding-left: 15px; /* Further reduced padding-left */
+    }
+  }
+
 /* ----------------------------------------------- ANALYSIS END ----------------------------------------------------- */
 
 
@@ -337,3 +365,21 @@ svg {
       min-width: 170px;
     }
   }
+
+  /* Media query for smaller screens */
+ @media (max-width: 768px) {
+  .footer {
+      flex-direction: column;
+  }
+
+  .footer .column {
+      flex: none; /* Reset the flex value */
+      width: 100%; /* Full width */
+      border-left: none; /* Optionally remove the border */
+      padding: 10px; /* Adjust padding as needed */
+  }
+
+  .footer .first-column {
+      order: -1; /* Move the first column to the top */
+  }
+}
